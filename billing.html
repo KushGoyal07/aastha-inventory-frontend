@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing - Astha Electronics</title>
+  <link rel="icon" href="assets/favicons/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-brand">
+      <img src="assets/images/asthalogo.jpg" alt="Logo" class="header-logo">
+      <h1>Astha Electronics</h1>
+    </div>
+    <nav>
+      <a href="inventory.html">Inventory</a>
+      <a href="billing.html" class="active">Billing</a>
+      <a href="add-item.html">Add Item</a>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Create New Bill</h2>
+      <div class="search-container">
+        <input type="text" id="billSearch" placeholder="Search items..." oninput="searchBillItems()" onfocus="showSearchResults()">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <div id="bill-items" class="bill-items"></div>
+      <button class="btn btn-primary" onclick="generateBill()">Generate Bill</button>
+      <div id="bill-result"></div>
+    </div>
+
+    <div class="card">
+      <h2>Billing History</h2>
+      <button class="btn btn-primary" onclick="loadHistory()">Load History</button>
+      <div id="billing-history"></div>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/billing.js"></script>
+</body>
+</html>
