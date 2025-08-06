@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Password verification
   verifyPasswordBtn.addEventListener('click', () => {
     const enteredPassword = document.getElementById('adminPassword').value;
-    if (enteredPassword === 'admin123') {
+    if (enteredPassword === 'Abhishek1@') {
       passwordModal.style.display = 'none';
       addForm.style.display = 'block';
       passwordError.style.display = 'none';
