@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lockBtn.innerHTML = "🔒 Unlock Controls";
     } else {
       const password = prompt("Enter admin password:");
-      if (password === "admin123") {
+      if (password === "Abhishek1@") {
         isUnlocked = true;
         lockBtn.innerHTML = "🔓 Admin Unlocked";
       } else {
