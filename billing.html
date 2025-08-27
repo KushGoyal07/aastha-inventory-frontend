@@ -28,7 +28,24 @@
         <input type="text" id="billSearch" placeholder="Search items..." oninput="searchBillItems()" onfocus="showSearchResults()">
         <div id="searchResults" class="search-results"></div>
       </div>
+
       <div id="bill-items" class="bill-items"></div>
+
+      <div class="customer-info">
+        <label for="customer-name">Customer Name:</label>
+        <input type="text" id="customer-name" placeholder="Enter customer name" />
+      </div>
+
+      <div class="customer-info">
+        <label for="customer-address">Customer Address:</label>
+        <textarea id="customer-address" placeholder="Enter customer address"></textarea>
+      </div>
+
+      <div class="total-adjuster">
+        <label for="total-adjustment">Total Adjustment (₹):</label>
+        <input type="number" id="total-adjustment" value="0" />
+      </div>
+
       <button class="btn btn-primary" onclick="generateBill()">Generate Bill</button>
       <div id="bill-result"></div>
     </div>
