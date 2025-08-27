@@ -4,7 +4,6 @@ let selectedItems = [];
 document.addEventListener('DOMContentLoaded', () => {
   loadItems();
 
-  // Expose these to global for HTML inline calls
   window.showSearchResults = showSearchResults;
   window.searchBillItems = searchBillItems;
   window.addToBill = addToBill;
@@ -41,7 +40,7 @@ function showSearchResults() {
 function searchBillItems() {
   const term = document.getElementById('billSearch').value.toLowerCase();
   const results = document.getElementById('searchResults');
-  
+
   results.innerHTML = availableItems
     .filter(item => item.name.toLowerCase().includes(term))
     .map(item => `
@@ -108,6 +107,10 @@ function removeItem(itemId) {
 }
 
 async function generateBill() {
+  const customerName = document.getElementById('customer-name').value;
+  const customerAddress = document.getElementById('customer-address').value;
+  const totalAdjustment = parseFloat(document.getElementById('total-adjustment').value) || 0;
+
   if (selectedItems.length === 0) {
     alert("Please add items to generate a bill");
     return;
@@ -115,7 +118,7 @@ async function generateBill() {
 
   const subtotal = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const tax = subtotal * 0.18;
-  const total = subtotal + tax;
+  const total = subtotal + tax + totalAdjustment; // Apply adjustment
   const invoiceNumber = Math.floor(Math.random() * 1000000);
   const billDate = new Date().toISOString();
 
@@ -129,12 +132,16 @@ async function generateBill() {
           <p>GSTIN: 22AAAAA0000A1Z5</p>
         </div>
       </header>
-      
+
       <div class="bill-details">
         <p><strong>Bill No:</strong> ${invoiceNumber}</p>
         <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
+
+        <!-- Customer Information -->
+        <p><strong>Customer Name:</strong> ${customerName}</p>
+        <p><strong>Customer Address:</strong> ${customerAddress}</p>
       </div>
-      
+
       <table class="bill-items">
         <thead>
           <tr>
@@ -155,18 +162,19 @@ async function generateBill() {
           `).join('')}
         </tbody>
       </table>
-      
+
       <div class="bill-totals">
         <p><strong>Subtotal:</strong> ₹${subtotal.toFixed(2)}</p>
         <p><strong>GST (18%):</strong> ₹${tax.toFixed(2)}</p>
+        <p><strong>Total Adjustment:</strong> ₹${totalAdjustment.toFixed(2)}</p>
         <p><strong>Total:</strong> ₹${total.toFixed(2)}</p>
       </div>
-      
+
       <footer class="bill-footer">
         <p>Thank you for your business!</p>
         <p>Goods once sold will not be taken back</p>
       </footer>
-      
+
       <div class="bill-actions">
         <button class="btn btn-primary" onclick="printBill()">Print Bill</button>
       </div>
@@ -189,7 +197,9 @@ async function generateBill() {
         tax,
         total,
         invoiceNumber,
-        date: billDate
+        date: billDate,
+        customerName,
+        customerAddress
       })
     });
 
