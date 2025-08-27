@@ -499,3 +499,139 @@ button:hover {
   height: 50px;
   margin: 0 auto;
 }
+/* ===== BILL TEMPLATE ===== */
+.bill-template {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.bill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+.bill-logo {
+  height: 60px;
+}
+
+.shop-info h1 {
+  font-size: 28px;
+  color: #4361ee;
+}
+
+.shop-info p {
+  font-size: 14px;
+  color: #666;
+}
+
+.bill-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bill-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.bill-items {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.bill-items th {
+  background-color: #4361ee;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.bill-items td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-with-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-with-img img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.bill-totals {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bill-totals p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.bill-totals .total-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ef233c;
+}
+
+.bill-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.bill-footer p {
+  margin: 5px 0;
+}
+
+.bill-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #4361ee;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3a0ca3;
+}
+
+.total-adjuster input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
